@@ -8807,9 +8807,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7224041880934863781}
+  - component: {fileID: 807506324683103892}
   m_Layer: 0
   m_Name: wheatPrefab
-  m_TagString: Untagged
+  m_TagString: Wheat
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8952,6 +8953,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!64 &807506324683103892
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8001528180334299423}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 0}
 --- !u!1 &8015166866613113140
 GameObject:
   m_ObjectHideFlags: 0

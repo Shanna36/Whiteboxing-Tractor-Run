@@ -29,5 +29,17 @@ public class PlayerControllerX : MonoBehaviour
 
         // We turn the Vehicle
         transform.Rotate(Vector3.up, turnSpeed * horizontalInput * Time.deltaTime);
+
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.CompareTag("Wheat"))
+        {
+          
+            Destroy(other.gameObject);
+           //add slider info  for wheat ingestion here
+
+        }
     }
 }
