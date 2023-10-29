@@ -13,7 +13,7 @@ public class PlayerControllerX : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        // Initialize the playerRb if needed
+       
         playerRb = GetComponent<Rigidbody>();
     }
 
@@ -34,6 +34,7 @@ public class PlayerControllerX : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        Debug.Log ("Collided with" + other.gameObject.name);
         if(other.CompareTag("Wheat"))
         {
           
