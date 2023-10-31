@@ -4,5 +4,8 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/Tractor Whiteboxing Scene.unity
+    guid: 77c8ed33ee68c45d29a40ec4711721f6
   m_configObjects: {}
