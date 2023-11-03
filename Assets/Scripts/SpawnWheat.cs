@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class SpawnWheat : MonoBehaviour
 {
-   public GameObject wheatPrefab; 
+public GameObject wheatPrefab; 
 public Terrain terrain;
-public int numberOfWheat = 200; // Number of wheat instances you want to spawn
+public int numberOfWheat = 400; // Number of wheat instances you want to spawn
 
 void Start()
 {
-    int numberOfWheat = 300; // Adjust as needed
+    int numberOfWheat = 600; // Adjust as needed
 
    
     float fieldStartX = -290;
