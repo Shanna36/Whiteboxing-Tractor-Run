@@ -9,6 +9,9 @@ public class PlayerControllerX : MonoBehaviour
     private Rigidbody playerRb;
     private float horizontalInput; // Declare horizontalInput
     private float forwardInput;    // Declare forwardInput
+    public Camera sideViewCamera;
+    public Camera topCamera; 
+    public KeyCode switchKey; 
 
     // Start is called before the first frame update
     void Start()
@@ -30,6 +33,11 @@ public class PlayerControllerX : MonoBehaviour
         // We turn the Vehicle
         transform.Rotate(Vector3.up, turnSpeed * horizontalInput * Time.deltaTime);
 
+     if (Input.GetKeyDown(switchKey))
+     {
+        sideViewCamera.enabled = !sideViewCamera.enabled;
+        topCamera.enabled = !topCamera.enabled; 
+     }
     }
 
     private void OnTriggerEnter(Collider other)

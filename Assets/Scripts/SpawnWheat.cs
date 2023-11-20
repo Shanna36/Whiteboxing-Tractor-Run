@@ -6,7 +6,7 @@ public class SpawnWheat : MonoBehaviour
 {
 public GameObject wheatPrefab; 
 public Terrain terrain;
-public int numberOfWheat = 400; // Number of wheat instances you want to spawn
+
 
 void Start()
 {
@@ -53,7 +53,7 @@ void Start()
 
             Vector3 normal = terrain.terrainData.GetInterpolatedNormal((x - fieldStartX) / (fieldEndX - fieldStartX), (z - fieldStartZ) / (fieldEndZ - fieldStartZ));
             Quaternion rotation = Quaternion.Euler(10f, 0f, 0f);
-            //rotation *= Quaternion.Euler(70f, 0f, 0f); //fixing my model's wonky rotation
+            //rotation *= Quaternion.Euler(70f, 0f, 0f); fixing my model's wonky rotation
 
 
             Instantiate(wheatPrefab, new Vector3(x, y, z), rotation);

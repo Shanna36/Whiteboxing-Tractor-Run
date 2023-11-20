@@ -6,6 +6,8 @@ TagManager:
   tags:
   - player
   - Terrain
+  - Wheat
+  - side camera
   layers:
   - Default
   - TransparentFX
