@@ -1,17 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
+using UnityEngine; 
 
-public class PlayerControllerX : MonoBehaviour
+public class Buggy : MonoBehaviour
 {
-    public Camera sideViewCamera;
-    public Camera topCamera; 
-    public KeyCode switchKey; 
-
-     public Transform gravityTarget;
+    public Transform gravityTarget;
 
     public float power = 15000f;
-    public float torque = 900f;
+    public float torque = 500f;
     public float gravity = 9.81f;
 
     public bool autoOrient = false;
@@ -21,32 +17,22 @@ public class PlayerControllerX : MonoBehaviour
     private float verInput;
     private float steerAngle;
 
-    public Wheel[] wheels;
+     public Wheel[] wheels;
 
     Rigidbody rb;
 
-
-
-    // Start is called before the first frame update
     void Start()
     {
-       
-          rb = GetComponent<Rigidbody>();
+        rb = GetComponent<Rigidbody>();
     }
 
-    // Update is called once per frame
-    void Update()
+    void Update() 
     {
-         ProcessInput();
+        ProcessInput();
         Vector3 diff = transform.position - gravityTarget.position;
         if(autoOrient) { AutoOrient(-diff); }
-
-     if (Input.GetKeyDown(switchKey))
-     {
-        sideViewCamera.enabled = !sideViewCamera.enabled;
-        topCamera.enabled = !topCamera.enabled; 
-     }
     }
+
     void FixedUpdate()
     {
         ProcessForces();
@@ -85,17 +71,5 @@ public class PlayerControllerX : MonoBehaviour
     {
         Quaternion orientationDirection = Quaternion.FromToRotation(-transform.up, down) * transform.rotation;
         transform.rotation = Quaternion.Slerp(transform.rotation, orientationDirection, autoOrientSpeed * Time.deltaTime);
-    }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        Debug.Log ("Collided with" + other.gameObject.name);
-        if(other.CompareTag("Wheat"))
-        {
-          
-            Destroy(other.gameObject);
-           //add slider info  for wheat ingestion here
-
-        }
     }
 }

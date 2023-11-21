@@ -5,7 +5,7 @@ using UnityEngine;
 public class CameraController : MonoBehaviour
 {
     public GameObject player;
-    public Camera sideViewCamera; 
+    public Camera sideViewCamera;
     public Camera topCamera;
 
     private Vector3 sideCameraOffset = new Vector3(19, 13, -22); // Offset for side camera
@@ -13,14 +13,18 @@ public class CameraController : MonoBehaviour
 
     void Update()
     {
-        // Check which camera is active and set position accordingly
+        // Check which camera is active and set position and rotation accordingly
         if (sideViewCamera.enabled)
         {
             sideViewCamera.transform.position = player.transform.position + sideCameraOffset;
+            // Additional rotation adjustments for side camera can be added here if needed
         }
         else if (topCamera.enabled)
         {
             topCamera.transform.position = player.transform.position + topCameraOffset;
+            
+            // Match top camera's rotation with player's rotation
+            topCamera.transform.rotation = player.transform.rotation;
         }
     }
 }
