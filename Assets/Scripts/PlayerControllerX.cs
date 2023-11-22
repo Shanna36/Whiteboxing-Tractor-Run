@@ -11,7 +11,7 @@ public class PlayerControllerX : MonoBehaviour
      public Transform gravityTarget;
 
     public float power = 15000f;
-    public float torque = 900f;
+    public float torque = 500f;
     public float gravity = 9.81f;
 
     public bool autoOrient = false;

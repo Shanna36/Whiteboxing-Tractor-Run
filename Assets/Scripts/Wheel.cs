@@ -21,6 +21,7 @@ public class Wheel : MonoBehaviour
     {
         Debug.LogError("Wheel mesh not found for " + gameObject.name);
     }
+        
     }
 
     public void Steer(float steerInput)
@@ -35,13 +36,15 @@ public class Wheel : MonoBehaviour
         else wcol.brakeTorque = 0;
     }
 
-    public void UpdatePosition()
-    {
-        Vector3 pos = transform.position;
-        Quaternion rot = transform.rotation;
+public void UpdatePosition()
+{
+    Vector3 pos;
+    Quaternion rot;
 
-        wcol.GetWorldPose(out pos, out rot);
-        wmesh.transform.position = pos;
-        wmesh.transform.rotation = rot;
-    }
+    wcol.GetWorldPose(out pos, out rot);
+    wmesh.transform.position = pos;
+
+    // Apply rotation for steering (Y-axis) and rolling (Z-axis)
+    wmesh.transform.rotation = Quaternion.Euler(wmesh.transform.rotation.eulerAngles.x, rot.eulerAngles.y, wmesh.transform.rotation.eulerAngles.z);
+}
 }
