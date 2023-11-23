@@ -9,16 +9,32 @@ public class PlayerControllerSimplified : MonoBehaviour
     public float maxMotorTorque; // maximum torque the motor can apply to wheel
     public float maxSteeringAngle; // maximum steer angle the wheel can have
 
-    // Add these variables if they're needed
     public KeyCode switchKey; 
     public Camera sideViewCamera;
     public Camera topCamera;
 
+    public Vector3 centerOfMassOffset; 
+
+        [System.Serializable]
+         public class AxleInfo
+    {   
+        public WheelCollider leftWheel;
+        public WheelCollider rightWheel;
+        public bool motor; // is this wheel attached to motor?
+        public bool steering; // does this wheel apply steer angle?
+    }
+
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        Rigidbody rb = GetComponent<Rigidbody>();
+        if (rb != null)
+        {
+            rb.centerOfMass = centerOfMassOffset;
+        }
     }
+    
 
     // Update is called once per frame
     void Update()
@@ -30,7 +46,7 @@ public class PlayerControllerSimplified : MonoBehaviour
         }
     }
     
-    public void FixedUpdate()
+    void FixedUpdate()
     {
         float motor = maxMotorTorque * Input.GetAxis("Vertical");
         float steering = maxSteeringAngle * Input.GetAxis("Horizontal");
@@ -50,7 +66,7 @@ public class PlayerControllerSimplified : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter(Collider other)
+    void OnTriggerEnter(Collider other)
     {
         Debug.Log("Collided with" + other.gameObject.name);
         if (other.CompareTag("Wheat"))
@@ -59,13 +75,5 @@ public class PlayerControllerSimplified : MonoBehaviour
             //add slider info for wheat ingestion here
         }
     }
-}
 
-[System.Serializable]
-public class AxleInfo
-{
-    public WheelCollider leftWheel;
-    public WheelCollider rightWheel;
-    public bool motor; // is this wheel attached to motor?
-    public bool steering; // does this wheel apply steer angle?
 }
