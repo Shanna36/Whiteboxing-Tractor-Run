@@ -1,12 +1,9 @@
 fileFormatVersion: 2
-guid: ec3ea2863211a4aed96f559681d967d5
+guid: 183279db5644f4163b6416512fd772fa
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences:
-  - player: {instanceID: 0}
-  - sideViewCamera: {instanceID: 0}
-  - topCamera: {instanceID: 0}
+  defaultReferences: []
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

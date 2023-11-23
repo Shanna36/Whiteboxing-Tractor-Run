@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
-    public GameObject player;
-    public Camera sideViewCamera;
-    public Camera topCamera;
+   public GameObject player;
+   public Camera sideViewCamera;
+   public Camera topCamera;
 
     private Vector3 sideCameraOffset = new Vector3(19, 13, -22); // Offset for side camera
     private Vector3 topCameraOffset = new Vector3(8, 11, 6); // Offset for top camera
