@@ -12,6 +12,8 @@ public class PlayerControllerSimplified : MonoBehaviour
     public KeyCode switchKey; 
     public Camera sideViewCamera;
     public Camera topCamera;
+     private Rigidbody playerRb;
+     [SerializeField] GameObject centerOfMass; 
 
     public Vector3 centerOfMassOffset; 
 
@@ -29,10 +31,8 @@ public class PlayerControllerSimplified : MonoBehaviour
     void Start()
     {
         Rigidbody rb = GetComponent<Rigidbody>();
-        if (rb != null)
-        {
-            rb.centerOfMass = centerOfMassOffset;
-        }
+        playerRb.centerOfMass = centerOfMass.transform.position; 
+
     }
     
 
@@ -75,5 +75,13 @@ public class PlayerControllerSimplified : MonoBehaviour
             //add slider info for wheat ingestion here
         }
     }
+
+    void OnDrawGizmos()
+{
+    Rigidbody rb = GetComponent<Rigidbody>();
+    Gizmos.color = Color.red;
+    // This will draw a red sphere at the center of mass
+    Gizmos.DrawSphere(transform.position + rb.centerOfMass, 0.1f);
+}
 
 }
