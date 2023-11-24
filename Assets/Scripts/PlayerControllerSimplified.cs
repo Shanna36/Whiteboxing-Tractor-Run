@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI; 
 
 public class PlayerControllerSimplified : MonoBehaviour
 {
@@ -12,8 +13,11 @@ public class PlayerControllerSimplified : MonoBehaviour
     public KeyCode switchKey; 
     public Camera sideViewCamera;
     public Camera topCamera;
-     private Rigidbody playerRb;
-     [SerializeField] GameObject centerOfMass; 
+
+    private Rigidbody playerRb;
+    [SerializeField] GameObject centerOfMass; 
+
+    public Slider fillBar; 
 
     public Vector3 centerOfMassOffset; 
 
@@ -73,6 +77,7 @@ public class PlayerControllerSimplified : MonoBehaviour
         {
             Destroy(other.gameObject);
             //add slider info for wheat ingestion here
+             fillBar.value += 1;
         }
     }
 
